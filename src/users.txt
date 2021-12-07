@@ -1,0 +1,2 @@
+Sunny|190.0|Pizza,Gameboy,Soda,
+Ami|50.0|,
