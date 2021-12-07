@@ -6,9 +6,9 @@ import edu.iu.c212.models.User;
 import java.io.IOException;
 
 public abstract class Place {
-    String placeName;
-    Arcade arcade;
-    double entryFee;
+    private String placeName;
+    protected Arcade arcade;
+    private double entryFee;
 
     public Place(String placeName, Arcade arcade, double entryFee) {
         this.placeName = placeName;

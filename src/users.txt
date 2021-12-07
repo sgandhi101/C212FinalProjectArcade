@@ -1,2 +1,2 @@
-Sunny|190.0|Pizza,Gameboy,Soda,
-Ami|50.0|,
+Sunny|160.0|Pizza,Gameboy,Soda,
+Bob|50.0|,

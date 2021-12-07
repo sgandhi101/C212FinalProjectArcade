@@ -10,9 +10,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-// TODO: There are (3) issues in this Class
-// TODO: The way I do it right now is a charAt method --> problem is "apple" registers as "a" --> is this okay?
-// TODO: Can you have the same value multiple times in the incorrect Guess list? --> Eg, [a,b,c,a]
 public class HangmanGame extends Game implements IHangmanGame {
     public HangmanGame(Arcade arcade) {
         super("Hangman", arcade, 5.0);
@@ -61,13 +58,11 @@ public class HangmanGame extends Game implements IHangmanGame {
             // To check if requirements for solving Hangman game have been met
             if (getBlurredWord(allGuesses, randomlyGeneratedHangmanWord).equals(randomlyGeneratedHangmanWord)) {
                 stopGuessing = true;
-                if (stopGuessing) {
-                    System.out.println("Congrats, you won with " + incorrectGuessesCount + " incorrect guesses! You got" +
-                            " $15.");
-                    user.setBalance(user.getBalance() + 15);
-                    // TODO: Why does my arcade.saveUsersToFile() method not work here --> this problem exits in all the Game extended Classes
-                    break;
-                }
+                System.out.println("Congrats, you won with " + incorrectGuessesCount + " incorrect guesses! You got" +
+                        " $15.");
+                user.setBalance(user.getBalance() + 15);
+                arcade.saveUsersToFile();
+                break;
             }
 
             System.out.println("You have guessed " + incorrectGuessesCount + " times incorrectly. "
@@ -76,10 +71,26 @@ public class HangmanGame extends Game implements IHangmanGame {
             System.out.println("The current word is " + getBlurredWord(allGuesses, randomlyGeneratedHangmanWord) +
                     ". Please enter a lower case letter in the following lexicon to guess: " + getValidLexicon());
 
-            try {
-                Character tempUserHangmanGuess = ConsoleUtils.readLineFromConsole().charAt(0);
-                allGuesses.add(tempUserHangmanGuess);
+            Character tempUserHangmanGuess = ConsoleUtils.readLineFromConsole().charAt(0);
 
+            while (allGuesses.contains(tempUserHangmanGuess)) {
+                System.out.println("You entered a character you've already guessed. Try again.");
+                System.out.println("The current word is " + getBlurredWord(allGuesses, randomlyGeneratedHangmanWord) +
+                        ". Please enter a lower case letter in the following lexicon to guess: " + getValidLexicon());
+                tempUserHangmanGuess = ConsoleUtils.readLineFromConsole().charAt(0);
+            }
+
+            boolean guessInLexicon = false;
+            for (Character c : getValidLexicon()) {
+                if (c.equals(tempUserHangmanGuess)) {
+                    guessInLexicon = true;
+                    break;
+                }
+            }
+            if (!guessInLexicon) {
+                System.out.println("You entered a character not in the lexicon. You have been penalized regardless");
+                incorrectGuessesCount++;
+            } else {
                 boolean isInGeneratedWord = false;
                 for (Character x : randomlyGeneratedHangmanWord.toCharArray()) {
                     if (x == tempUserHangmanGuess) {
@@ -91,10 +102,7 @@ public class HangmanGame extends Game implements IHangmanGame {
                     incorrectGuessesArrayList.add(tempUserHangmanGuess);
                     incorrectGuessesCount++;
                 }
-
-            } catch (Exception ex) {
-                System.out.println("You entered a character not in the lexicon. You have been penalized regardless");
-                incorrectGuessesCount++;
+                allGuesses.add(tempUserHangmanGuess);
             }
         }
         if (!stopGuessing) {
