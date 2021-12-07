@@ -1,11 +1,13 @@
 package edu.iu.c212.places.games.blackjack;
 
 public class BlackjackDealer extends BlackjackParticipant {
-    private String shownCard;
+    private Card shownCard;
     private int dealerBest;
 
     public BlackjackDealer() {
-
+        // TODO: Do I have to re-initialize handTotals here? Confused on what this constructor is supposed to do.
+        hit();
+        hit();
     }
 
     @Override
@@ -14,7 +16,7 @@ public class BlackjackDealer extends BlackjackParticipant {
     }
 
     public String getPartialHand() {
-        return "";
+        return "Dealer has " + shownCard.getCardName() + " + ???";
     }
 
     public void play() {

@@ -18,8 +18,8 @@ public abstract class BlackjackParticipant {
         cards.remove(temp);
 
         if (!(temp.getValue() == -1)) {
-            for (int i = 0; i < handTotals.size(); i++) {
-                handTotals.set(i, handTotals.get(i) + temp.getValue());
+            for (int i = 0; i < this.handTotals.size(); i++) {
+                handTotals.set(i, this.handTotals.get(i) + temp.getValue());
             }
         } else {
             ArrayList<Integer> tempArrayList = new ArrayList<>();

@@ -47,6 +47,7 @@ public class TriviaGame extends Game {
                 System.out.println("You got it right! You got $2");
                 correctQuestionsAnswered++;
                 user.setBalance(user.getBalance() + 2);
+                arcade.saveUsersToFile();
             } else {
                 System.out.println("You got it wrong :( The correct answer is: " + correctAnswer);
             }
