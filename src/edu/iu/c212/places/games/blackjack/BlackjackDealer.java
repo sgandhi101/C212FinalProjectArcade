@@ -37,6 +37,7 @@ public class BlackjackDealer extends BlackjackParticipant {
 
         while (continueHitting) {
             allValuesAreAbove21 = true;
+            this.dealerBest = -1;
 
             this.handTotals.sort(Collections.reverseOrder());
             for (Integer x : this.handTotals) {
@@ -49,7 +50,6 @@ public class BlackjackDealer extends BlackjackParticipant {
                     allValuesAreAbove21 = false;
                 }
             }
-
             if (!allValuesAreAbove21) hit();
             else break;
         }

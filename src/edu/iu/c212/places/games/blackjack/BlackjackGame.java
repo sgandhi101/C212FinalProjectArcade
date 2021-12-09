@@ -31,7 +31,7 @@ public class BlackjackGame extends Game {
 
             if (choice.equals("Hit!")) {
                 bJP.hit();
-                if(bJP.getBestTotal() == 0){
+                if (bJP.getBestTotal() == 0) {
                     gameEnd = true;
                 }
             } else {
@@ -40,8 +40,6 @@ public class BlackjackGame extends Game {
             }
         }
 
-
-        // Implement logic for deciding who won
         if (bJP.getBestTotal() == 0) {
             System.out.println("You busted!");
         } else if (dealer.getBestTotal() == -1) {
@@ -54,10 +52,10 @@ public class BlackjackGame extends Game {
                 user.setBalance(user.getBalance() + 50);
                 arcade.saveUsersToFile();
             } else {
-                System.out.println("The dealer beat you. Sorry, you lost.");
+                System.out.println("You had " + bJP.getBestTotal() + " and the Dealer had " + dealer.getBestTotal()
+                        + ". Sorry, you lost.");
             }
         }
-
         System.out.println("Going back to lobby.");
     }
 }
