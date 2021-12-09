@@ -2,10 +2,9 @@ package edu.iu.c212.places.games.blackjack;
 
 import java.util.ArrayList;
 
-// TODO: There are 2 issues in this Class
+
 public class BlackjackPlayer extends BlackjackParticipant {
     public BlackjackPlayer() {
-        // TODO: I've initialized HandsTotals in the BlackjackParticipant class is that okay? Or do I have to do it here?
         super();
         hit();
         hit();
@@ -29,11 +28,10 @@ public class BlackjackPlayer extends BlackjackParticipant {
 
     @Override
     public int getBestTotal() {
-        // TODO: Am I supposed to return the lowest value?
-        int lowestValue = this.handTotals.get(0);
+        int highestValue = 0;
         for (Integer x : this.handTotals) {
-            if (x < lowestValue) lowestValue = x;
+            if (x > highestValue && x <= 21) highestValue = x;
         }
-        return lowestValue;
+        return highestValue;
     }
 }

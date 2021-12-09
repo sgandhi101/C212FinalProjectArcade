@@ -52,7 +52,6 @@ public class HangmanGame extends Game implements IHangmanGame {
         boolean stopGuessing = false;
         List<Character> incorrectGuessesArrayList = new ArrayList<>();
         List<Character> allGuesses = new ArrayList<>();
-        System.out.println(randomlyGeneratedHangmanWord);
 
         while (incorrectGuessesCount < 6) {
             // To check if requirements for solving Hangman game have been met

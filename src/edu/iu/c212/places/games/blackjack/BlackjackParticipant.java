@@ -17,7 +17,12 @@ public abstract class BlackjackParticipant {
         Card temp = cards.get(0);
         cards.remove(temp);
 
-        if (!(temp.getValue() == -1)) {
+        if (handTotals.size() == 0) {
+            if (temp.getValue() == -1) {
+                handTotals.add(1);
+                handTotals.add(11);
+            } else handTotals.add(temp.getValue());
+        } else if (!(temp.getValue() == -1)) {
             for (int i = 0; i < this.handTotals.size(); i++) {
                 handTotals.set(i, this.handTotals.get(i) + temp.getValue());
             }
