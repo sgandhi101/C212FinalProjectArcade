@@ -25,7 +25,7 @@ public class FileUtils {
      * @param users The total list of all users
      */
     public static void writeUserDataToFile(List<User> users) throws IOException {
-        File temp = new File("/Users/sunny/Documents/GitHub/C212FinalProjectArcade Starter Code/temp.txt");
+        File temp = new File("temp.txt");
         BufferedWriter writer = new BufferedWriter(new FileWriter(temp));
 
         for (User u : users) {

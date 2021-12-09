@@ -32,7 +32,6 @@ public abstract class BlackjackParticipant {
                 tempArrayList.add(i + 1);
                 tempArrayList.add(i + 11);
             }
-
             handTotals.clear();
             handTotals.addAll(tempArrayList);
         }

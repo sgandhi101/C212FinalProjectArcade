@@ -1,2 +1,2 @@
-Sunny|960.0|Pizza,Gameboy,Soda,
+Sunny|997.0|Pizza,Watch,
 Bob|1000.0|,

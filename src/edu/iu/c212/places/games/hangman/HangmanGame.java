@@ -45,7 +45,7 @@ public class HangmanGame extends Game implements IHangmanGame {
 
     @Override
     public void onEnter(User user) throws IOException {
-        System.out.println("Hello. You will be guessing a randomly generated word. " +
+        System.out.println("Hello. Welcome to Hangman. You will be guessing a randomly generated word. " +
                 "If you guess the word within 6 guesses, you win $15. The entry fee for this game was $5.");
         String randomlyGeneratedHangmanWord = HttpUtils.getRandomHangmanWord();
         int incorrectGuessesCount = 0;
@@ -110,4 +110,10 @@ public class HangmanGame extends Game implements IHangmanGame {
         }
         System.out.println("Returning to Lobby");
     }
+
+    @Override
+    public String toString() {
+        return "Place Name: " + getPlaceName() + " (Cost: $" + getEntryFee() + ") Game?:" + "yes";
+    }
+
 }

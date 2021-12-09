@@ -54,4 +54,9 @@ public class GuessTheNumberGame extends Game {
         }
         System.out.println("Returning to Lobby");
     }
+
+    @Override
+    public String toString() {
+        return "Place Name: " + getPlaceName() + " (Cost: $" + getEntryFee() + ") Game?:" + "yes";
+    }
 }

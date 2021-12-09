@@ -56,4 +56,9 @@ public class TriviaGame extends Game {
 
         System.out.println("Going back to lobby.");
     }
+
+    @Override
+    public String toString() {
+        return "Place Name: " + getPlaceName() + " (Cost: $" + getEntryFee() + ") Game?:" + "yes";
+    }
 }
