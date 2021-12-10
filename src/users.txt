@@ -1,2 +1,2 @@
-Sunny|997.0|Pizza,Watch,
+Sunny|949.5|Gameboy,Soft Blanket,
 Bob|1000.0|,

@@ -74,6 +74,7 @@ public class Store extends Place {
                     for (Item i : Item.values()) {
                         if (i.getReadableName().equals(whatObjectToSell)) {
                             user.setBalance(user.getBalance() + (i.getValue() / 2));
+                            break;
                         }
                     }
                     arcade.saveUsersToFile();
