@@ -1,2 +1,1 @@
-Sunny|949.5|Gameboy,Soft Blanket,
-Bob|1000.0|,
+Sunny|1000.0|Gameboy,Hot Wheels Car,

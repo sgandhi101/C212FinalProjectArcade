@@ -39,7 +39,7 @@ public class Inventory extends Place {
             System.out.println("Your inventory is empty!");
         }
 
-        System.out.println("Total Net Worth: " + totalNetWorth);
+        System.out.println("Total Net Worth: $" + totalNetWorth);
 
         if (user.getInventory().size() == 3) {
             System.out.println("REMEMBER! You can only have 3 items at a time. Sell one by going to the Store.");
